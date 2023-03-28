@@ -1,0 +1,37 @@
+package com.example.credit;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    // задание полей
+    float stioendia = 2500;
+    float teleskop = 14000;
+    float bankAccount = 1000;
+    float month = 0;
+
+    private float calculation() {
+        // создание и инициализация переменной подсчёта стоимости
+        for (int i = 0; teleskop > bankAccount; i++) {
+            bankAccount = (float) (bankAccount * 0.00416 + bankAccount);
+            bankAccount += stioendia;
+            month += 1;
+        }
+        return month;
+    }
+
+
+    // вывод на экран полученных значений
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // поле возможности покупки
+        TextView calculationOut = findViewById(R.id.possibilityOut);
+        calculationOut.setText("Можно купить телескоп через " + calculation() + " месяцев");
+    }
+
+
+}
